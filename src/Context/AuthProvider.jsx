@@ -6,6 +6,7 @@ export const AuthContext = createContext()
  const AuthProvider = ({children}) => {
   
 const [UserData, setUserData] = useState({employees:[]})
+
   useEffect(() => {
     setLocalStorage()
     const {employees }= getLocalStorage()
@@ -14,7 +15,7 @@ const [UserData, setUserData] = useState({employees:[]})
   }, [])
   
   return (
-   <AuthContext.Provider value={UserData}>
+   <AuthContext.Provider value={[UserData,setUserData]}>
       {children}
    </AuthContext.Provider>
   )

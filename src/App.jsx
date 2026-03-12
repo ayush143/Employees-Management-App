@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Login from './Component/Auth/Login'
 import EmployeDashbord from './Component/Dashbord/EmployeDashbord'
-import TaskList from './Component/TaskList/TaskList'
 import AdminDashbord from './Component/Dashbord/AdminDashbord'
 import { employees, getLocalStorage, setLocalStorage } from './utils/LocalStorage'
 import { AuthContext } from './Context/AuthProvider'
 
  const App = () => {
 
+
   const [User, setUser] = useState(null)
-  const AuthData =useContext(AuthContext)
+  const [AuthData] =useContext(AuthContext)
   const [LoggedInUserData, setLoggedInUserData] = useState(null)
 
 
@@ -21,7 +21,7 @@ useEffect(() => {
       setLoggedInUserData(UserData.data)
   }
  
-},[AuthData])
+},[])
 
 
 
@@ -48,7 +48,7 @@ useEffect(() => {
    
     <>
    {!User?<Login HandleLogin={HandleLogin}/>:''}
-    {User=='admin'? <AdminDashbord authData={AuthData} />: (User =='employee' ?<EmployeDashbord  data={LoggedInUserData}/>:null )}
+    {User=='admin'? <AdminDashbord  />: (User =='employee' ?<EmployeDashbord  data={LoggedInUserData}/>:null )}
     
     </>
   )

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { employees } from '../../utils/LocalStorage'
 
- const CreateTask = () => {
+ const CreateTask = ({OnTaskAdded}) => {
     const [Task, setTask] = useState('')
     const [Description, setDescription] = useState('')
     const [AsignTo, setAsignTo] = useState('')
@@ -33,10 +33,11 @@ const data = JSON.parse(localStorage.getItem("employees"));
       e.taskNumbers.newTask= e.taskNumbers.newTask+1;
    }
   })
+  OnTaskAdded(data);
+  
   localStorage.setItem("employees", JSON.stringify(data));
 
   console.log(data)
-
 
     setTask('')
     setDescription('')
