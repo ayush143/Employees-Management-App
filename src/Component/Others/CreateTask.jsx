@@ -56,7 +56,7 @@ const data = JSON.parse(localStorage.getItem("employees"));
    onSubmit={(e)=>{
    SubmitHandler(e)}}>
 
-       <img className='h-6 opacity-80 cursor-pointer' src="back-button.png"/> 
+      
        <h1 className='font-bold col-span-1 lg:col-span-2 text-center text-3xl mb-4'>Create Task</h1>
 
        <div className='flex flex-col gap-4'>
